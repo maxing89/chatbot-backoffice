@@ -1,0 +1,22 @@
+:host {
+  display: inline-block;
+}
+
+.confirm-popover {
+  > div {
+    padding: 0 0 10px 0 !important;
+    color: #4d637a;
+
+    + div {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.img-eliminar {
+  width: 26px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

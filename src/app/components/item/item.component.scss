@@ -1,0 +1,25 @@
+@import "../../../../node_modules/ngx-chips/core/styles/core/_core.scss";
+
+tbody {
+
+  tr {
+    cursor: pointer;
+  }
+}
+
+.img-add {
+  width: 30px;
+  margin-left: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+$synonyms-theme: (
+  container-border-bottom: 0px !important
+);
+
+::ng-deep .ng2-tag-input.synonyms-theme {
+  @include tag-input-theme($synonyms-theme);
+}

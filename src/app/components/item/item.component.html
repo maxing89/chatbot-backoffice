@@ -1,0 +1,49 @@
+<div class="container pad-0">
+  <div class="row">
+    <h3 class="pad-b-5">Items de {{ categoria }}</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <td><strong>Nombre</strong></td>
+          <td><strong>Respuesta Asociada</strong></td>
+          <td><strong>Sinónimos</strong></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of items; let i = index">
+          <tr>
+            <td (click)="showExpresiones(item.id.toLowerCase())">{{ item.id }}</td>
+            <td (click)="showExpresiones(item.id.toLowerCase())">{{ item.description }}</td>
+            <td class="synonyms-theme">
+              <tag-input
+                [(ngModel)]="item.synonyms"
+                [editable]="true"
+                placeholder="Add a synonym..."
+                secondaryPlaceholder="Add a synonym..."
+                [theme]="'synonyms-theme'"
+                (onAdd)="onAddSynonym($event, item.id)"
+                (onRemove)="onRemoveSynonym($event, item.id)"
+              ></tag-input>
+            </td>
+            <td>
+              <app-item-delete-confirm
+                (onConfirm)="deleteItem(item.id)">
+              </app-item-delete-confirm>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <div class="row">
+      <img (click)="showAddPopup()" src="assets/images/add.png" alt="Agregar item" title="Agregar un item" class="img-add"/>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade fees-modal" bsModal #itemAddPopup="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
+  <app-item-add-popup
+    (onSelectBack)="hideAddPopup()"
+    [categoria]=categoria>
+  </app-item-add-popup>
+</div>

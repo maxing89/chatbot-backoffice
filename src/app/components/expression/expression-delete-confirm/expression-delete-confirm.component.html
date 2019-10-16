@@ -1,0 +1,22 @@
+<div>
+  <ng-template #confirmPopover>
+    <div class="confirm-popover">
+      <div class="col-sm-12">
+        Estás seguro que deseas eliminar esta expresión?
+      </div>
+      <div class="col-sm-12">
+        <button (click)="hideConfirm()" type="button" class="btn btn-link btn-link-cancel">No</button>
+        <button (click)="acceptConfirm()" type="button" class="btn btn-info pull-right">Sí</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <button class="btn btn-xs btn-link panel-close"
+   [popover]="confirmPopover"
+   [outsideClick]="true"
+   triggers="click"
+   container="body"
+   placement="top">
+    <img src="assets/images/remove.png" alt="Eliminar la expresión" title="Eliminar expresión" class="img-eliminar"/>
+  </button>
+</div>

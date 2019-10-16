@@ -1,0 +1,41 @@
+.app-wrapper {
+  min-height: 100%;
+	margin-bottom: -30px;
+}
+
+.app-wrapper:after {
+  content: "";
+  display: block;
+	height: 30px;
+}
+
+.navbar-default {
+  border: none;
+  background-color: #f1f1f1;
+
+  .navbar-brand {
+    float: left;
+    padding: 10px;
+    line-height: 40px;
+
+    img {
+      width:200px;
+      height:40px;
+    }
+  }
+}
+
+main {
+  position: relative;
+  min-height: calc(100vh - 89px);
+}
+
+footer {
+  overflow: hidden;
+  padding: 0 15px;
+  height: auto;
+  line-height: 30px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #dadee2;
+  font-size: 12px;
+}

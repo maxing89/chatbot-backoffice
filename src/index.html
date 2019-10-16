@@ -1,14 +1,36 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Backoffice</title>
-  <base href="/">
+<html lang="es">
+  <head>
+    <style>
+      @keyframes spinner-index {
+        to {transform: rotate(360deg);}
+      }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+      @-webkit-keyframes spinner-index {
+        to {transform: rotate(360deg);}
+      }
+
+      .spinner-index {
+        right: 10px;
+        top: -10px;
+        height: 20px;
+        width: 100%;
+        text-align: center;
+        margin-top: 300px;
+        animation: spinner-index .6s linear infinite;
+        -webkit-animation: spinner-index .6s linear infinite;
+      }
+
+    </style>
+    <meta charset="utf-8">
+    <title>Chatbot Backoffice</title>
+    <base href="/">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
+    <app-root>
+      <img src="assets/images/loader.svg" class="spinner-index"/>
+    </app-root>
+  </body>
 </html>

@@ -1,0 +1,52 @@
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <form autocomplete="off" [formGroup]="addItemForm" (ngSubmit)="submit()">
+      <div class="modal-header text-center">
+        <h3>Agregar un item</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" [ngClass]="{'has-error': formErrors.nombreItem}">
+              <label for="nombreItem" class="">Nombre</label>
+              <input
+                type="text"
+                id="nombreItem"
+                name="nombreItem"
+                formControlName="nombreItem"
+                class="form-control form-control-min"
+                placeholder="Ej: Trasporte" />
+                <div *ngIf="formErrors.nombreItem" class="help-block">
+                  {{ formErrors.nombreItem }}
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" [ngClass]="{'has-error': formErrors.descripcionItem}">
+              <label for="descripcionItem" class="">Respuesta asociada</label>
+              <textarea
+                type="text"
+                name="descripcionItem"
+                formControlName="descripcionItem"
+                class="form-control form-control-min"
+                placeholder="Ingrese la respuesta asociada al item aquí..."
+                rows="10">
+              </textarea>
+                <div *ngIf="formErrors.descripcionItem" class="help-block">
+                  {{ formErrors.descripcionItem }}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row col-md-8 pad-r-3">
+          <button type="button" (click)="back()" class="btn btn-md btn-info">Cerrar</button>
+          <button type="submit" class="btn btn-md btn-info">Guardar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

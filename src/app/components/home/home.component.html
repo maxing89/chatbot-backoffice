@@ -1,0 +1,35 @@
+<div class="container pad-0">
+  <div class="row">
+    <h3 class="pad-b-5">Categorías</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <td><strong>Nombre</strong></td>
+          <td><strong>Descripción</strong></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias; let i = index">
+          <td (click)="showItems(categoria.id.toLowerCase())">{{ categoria.id }}</td>
+          <td (click)="showItems(categoria.id.toLowerCase())">{{ categoria.description }}</td>
+          <td>
+            <app-home-delete-confirm
+              (onConfirm)="deleteCategoria(categoria.id)">
+            </app-home-delete-confirm>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <img (click)="showAddPopup()" src="assets/images/add.png" alt="Agregar categoría" title="Agregar una categoría" class="img-add"/>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade fees-modal" bsModal #homeAddPopup="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
+  <app-home-add-popup
+    (onSelectSubmit)="submitAddPopup($event)"
+    (onSelectBack)="hideAddPopup()">
+  </app-home-add-popup>
+</div>

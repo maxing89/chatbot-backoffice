@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row pad-t-5">
+    <h3 class="pad-b-2">Expresiones</h3>
+    <ng-container>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Expresión</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let expresion of expresiones; let i = index">
+            <tr>
+              <td>{{ expresion.id }}</td>
+              <td>
+                <app-expression-delete-confirm
+                  (onConfirm)="deleteExpresion(expresion.id)">
+                </app-expression-delete-confirm>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="row">
+        <img (click)="showAddPopup()" src="assets/images/add.png" alt="Agregar expresiones" title="Agregar expresiones" class="img-add"/>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="modal fade fees-modal" bsModal #expressionAddPopup="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
+  <app-expression-add-popup
+    (onSelectBack)="hideAddPopup()"
+    [categoria]=categoria
+    [item]=item>
+  </app-expression-add-popup>
+</div>

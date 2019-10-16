@@ -1,0 +1,15 @@
+tbody {
+
+  tr {
+    cursor: pointer;
+  }
+}
+
+.img-add {
+  width: 30px;
+  margin-left: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

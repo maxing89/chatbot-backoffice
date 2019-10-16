@@ -1,0 +1,62 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-12">
+            <form autocomplete="off" [formGroup]="addExpresionForm" (ngSubmit)="submit()" novalidate>
+              <div class="pad-t-7">
+                <div class="form-group" [ngClass]="{ 'has-error' : formErrors.expresion }">
+                  <label for="expresion">Expresión</label>
+                  <input
+                    type="text"
+                    name="expresion"
+                    id="expresion"
+                    class="form-control form-control-min"
+                    formControlName="expresion" />
+                  <div *ngIf="formErrors.expresion" class="help-block">
+                    {{ formErrors.expresion }}
+                  </div>
+                </div>
+              </div>
+              <div class="row col-md-8 pad-r-3">
+                <button type="button" (click)="back()" class="btn btn-md btn-info">Cerrar</button>
+                <button type="submit" class="btn btn-md btn-info">Agregar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="expresionesNuevas.length !== 0" class="row pad-t-5">
+        <div class="col-md-12">
+          <div class="col-md-12">
+            <h3 class="pad-b-2">Expresiones nuevas</h3>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let expresion of expresionesNuevas; let i = index">
+                  <td>{{ expresion.descripcion }}</td>
+                  <td class="text-center">
+                    <app-expression-delete-confirm
+                      (onConfirm)="deleteExpresion(i)">
+                    </app-expression-delete-confirm>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-12 text-center">
+            <button (click)="agregarNuevasExpresiones()" type="button" class="btn btn-success btn-lg">
+              Terminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
