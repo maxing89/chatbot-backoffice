@@ -28,7 +28,7 @@
     "@ngrx/store": "2.2.2",
     "@ngrx/store-devtools": "3.2.4",
     "angular2-busy": "^2.0.4",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-sass": "^3.4.1",
     "core-js": "^2.5.7",
     "ng-http-interceptor": "3.1.1",
     "ng-select": "1.0.0-beta.6",
